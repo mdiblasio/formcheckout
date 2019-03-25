@@ -11,9 +11,39 @@ formInputs.forEach(input => {
   });
 });
 
-formInputs.forEach(input => {
-  input.addEventListener('blur', (e) => {
+function customCheckValidity(e) {
+  log('customCheckValidity');
+  // console.log(this);
+  let srcElm = e;
+console.log(srcElm);
+  // if not valid, display inline error mesasge and add error class tag
+  if (!srcElm.checkValidity()) {
+    log('here');
+    let validationMessage;
+    if (!srcElm.parentNode.hasAttribute('data-error')) {
+      log('here2');
+      srcElm.parentNode.setAttribute('data-error', srcElm.validationMessage);
+    } else {
+      // e.srcElement.setCustomValidity(e.srcElement.parentNode.getAttribute('data-error'));
+    }
+    // else
+    // validationMessage = e.srcElement.validationMessage;
+    srcElm.parentNode.classList.add('error');
+  } else {
+    srcElm.parentNode.classList.remove('error');
+    // e.srcElement.setCustomValidity("");
+  }
 
+}
+
+formInputs.forEach(input => {
+  log('adding custom validitiy');
+
+  // input.checkValidity = customCheckValidity;
+  // e.srcElement.checkValidity = customCheckValidity;
+
+  input.addEventListener('blur', (e) => {
+    log('blur');
     // add dirty class so we know it's been visitied
     e.srcElement.classList.add('dirty');
 
@@ -34,21 +64,9 @@ formInputs.forEach(input => {
       }
     }
 
-    // if not valid, display inline error mesasge and add error class tag
-    if (!e.srcElement.checkValidity()) {
-      log('here');
-      let validationMessage;
-      if (!e.srcElement.parentNode.hasAttribute('data-error')) {
-        log('here2');
-        e.srcElement.parentNode.setAttribute('data-error', e.srcElement.validationMessage);
+    customCheckValidity(e.srcElement);
+    // e.srcElement.checkValidity();
 
-      }
-      // else
-      // validationMessage = e.srcElement.validationMessage;
-      e.srcElement.parentNode.classList.add('error');
-    } else {
-      e.srcElement.parentNode.classList.remove('error');
-    }
   });
 });
 
@@ -57,14 +75,20 @@ function checkCardNumberValid(number) {
 }
 
 let form = document.querySelector('form'); // getElementById('myform');
+let formInputsArry = Array.from(formInputs);
 
 form.addEventListener("submit", function(evt) {
-  // alert("Form submitted");
-  console.log(evt);
+  // evt.preventDefault();
+  // log("Form submitted");
+  // console.log(evt);
   // handle validation failure
+  // let res 
   if (form.checkValidity() === false) {
     evt.preventDefault();
-    alert("Form is invalid - submission prevented!");
+    formInputsArry.forEach(input => { 
+      customCheckValidity(input)
+    });
+    // alert("Form is invalid - submission prevented!");
     return false;
   } else {
 
@@ -74,7 +98,7 @@ form.addEventListener("submit", function(evt) {
 
     // handle validation success
     // evt.preventDefault();
-    alert("Form is valid - submission prevented to protect privacy.");
+    // alert("Form is valid - submission prevented to protect privacy.");
     return false;
   }
 });

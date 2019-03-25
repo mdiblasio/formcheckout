@@ -1,5 +1,5 @@
 <form action="/checkout/payment.html"
-      method="get">
+      method="get" novalidate>
 
   <h2>Delivery </h2>
   <section>
@@ -41,7 +41,7 @@
          data-error="Delivery time must be between 11am and 5pm">
       <label for="deliveryTime">Delivery Time</label>
       <input type="time"
-             name="deliveryTime"
+             name="deliveryTime" required
              id="deliveryTime"
              min="11:00"
              max="17:00">

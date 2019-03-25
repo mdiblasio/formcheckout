@@ -68,8 +68,8 @@ section {
 
 .field.error, .field.helper {
     margin-bottom: 2rem;
-/*     font-size: .9em; */
-/*     margin: .2em 1em; */
+    /*     font-size: .9em; */
+    /*     margin: .2em 1em; */
 }
 
 .field.error:after, .field.helper:after {
@@ -81,7 +81,7 @@ section {
 .field.helper:after {
     content: attr(data-helper);
     color: #4b4b4b;
-/*     font-style: italic; */
+    /*     font-style: italic; */
     /*     position: absolute; */
     /*     font-size: .9em; */
     /*     margin: 1em 1em; */
@@ -94,8 +94,6 @@ section {
     font-style: italic;
     /*     padding: 1em; */
 }
-
-
 
 .activelabel label {
     padding: .2rem 1rem 1rem 1rem;
@@ -111,11 +109,11 @@ section {
 }
 
 input.dirty:not(:focus):invalid {
-        background-color: #FFD9D9;
+    background-color: #FFD9D9;
 }
 
 input.dirty:not(:focus):valid {
-        background-color: #D9FFD9;
+    background-color: #D9FFD9;
 }
 
 input[type=submit] {
@@ -133,8 +131,20 @@ input[type=submit] {
     cursor: pointer;
 }
 
-
 #orderDetails {
-   color: transparent;
-   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+input[type=radio] {
+    margin: 0em 1em 1em 1em;
+}
+
+.fieldRadio {
+    border: 2px solid #d6d6d6;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    margin: 0em 0em 1em 0em;
+    padding: 1em;
 }

@@ -29,7 +29,7 @@ app.get('/partials/:step', function(request, response) {
 });
 
 // listen for requests :)
-process.env.PORT = 8855;
+// process.env.PORT = 8855;
 const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });

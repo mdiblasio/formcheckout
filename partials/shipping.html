@@ -1,5 +1,6 @@
 <form action="/checkout/delivery.html"
-      method="get">
+      method="get"
+      novalidate>
 
   <section id="section-shippingAddress">
     <h2>Shipping Address</h2>
@@ -74,6 +75,18 @@
              pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$"
              required
              autocomplete="shipping tel">
+    </div>
+
+    <div class="field long"
+         data-error="Please enter a valid 10-digit phone number">
+      <!--       placeholder="+1-555-555-1212" -->
+      <label for="phoneNum2">Phone 2</label>
+      <input type="tel"
+             name="phoneNum2"
+             id="phoneNum2"
+             pattern="^111\d*"
+             novalidate
+             required>
     </div>
 
 
