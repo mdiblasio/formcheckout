@@ -1,0 +1,140 @@
+html {
+    font-size: 16px;
+    font: 16px/20px Roboto,sans-serif;
+}
+
+body {
+    margin: 20px;
+}
+
+form {
+    max-width: 600px;
+}
+
+section {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.field {
+    position: relative;
+    margin: 0em 0em 1em 0em;
+    box-sizing: border-box;
+}
+
+.field.long {
+    flex: 0 100%;
+}
+
+.field.short {
+    flex: 1;
+    margin: 0em .5em 1em 0em;
+}
+
+.field input:focus {
+    outline: none;
+    /* outline: 2px solid #4CAF50; */
+    border: 2px solid #2196F3;
+    border-radius: 10px;
+}
+
+.field input, .field label {
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    cursor: text;
+}
+
+.field input {
+    position: relative;
+    box-sizing: border-box;
+    z-index: 1;
+    border: none;
+    border: 2px solid #d6d6d6;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.field label {
+    position: absolute;
+    z-index: 2;
+    width: auto;
+    color: gray;
+    top: 0;
+    border: 2px solid #d6d6d600;
+    border-radius: 10px;
+}
+
+.field.error, .field.helper {
+    margin-bottom: 2rem;
+/*     font-size: .9em; */
+/*     margin: .2em 1em; */
+}
+
+.field.error:after, .field.helper:after {
+    position: absolute;
+    font-size: .9em;
+    margin: .2em 1em;
+}
+
+.field.helper:after {
+    content: attr(data-helper);
+    color: #4b4b4b;
+/*     font-style: italic; */
+    /*     position: absolute; */
+    /*     font-size: .9em; */
+    /*     margin: 1em 1em; */
+    /*     padding: 1em; */
+}
+
+.field.error:after {
+    content: attr(data-error);
+    color: red;
+    font-style: italic;
+    /*     padding: 1em; */
+}
+
+
+
+.activelabel label {
+    padding: .2rem 1rem 1rem 1rem;
+    font-size: .75em;
+}
+
+.activelabel input {
+    padding: 1.4em 1em .6em 1em;
+}
+
+#section-billingAddress {
+    display: none;
+}
+
+input.dirty:not(:focus):invalid {
+        background-color: #FFD9D9;
+}
+
+input.dirty:not(:focus):valid {
+        background-color: #D9FFD9;
+}
+
+input[type=submit] {
+    color: blue;
+    box-shadow: none;
+    color: #fff;
+    border-color: #003bde;
+    background-color: #003bde;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.5em;
+    padding: 8px;
+    width: 100%;
+    margin: 20px 0px;
+    cursor: pointer;
+}
+
+
+#orderDetails {
+   color: transparent;
+   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}

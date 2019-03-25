@@ -1,0 +1,59 @@
+<form action="/checkout/review.html"
+      method="get">
+
+
+  <section id="section-paymentInformation">
+    <h2>Payment Information</h2>
+
+    <div class="field long">
+      <label for="cc-name">Name on Card</label>
+      <input type="text"
+             name="cc-name"
+             id="cc-name"
+             required
+             autocomplete="cc-name">
+    </div>
+
+    <div class="field long">
+      <label for="cc-number">Credit Card</label>
+      <input id="cc-number"
+             autocomplete="cc-number"
+             required
+             name="cc-number"
+             type="number" />
+    </div>
+
+
+    <div class="field short">
+      <label for="cc-exp-month">Month</label>
+      <input id="cc-exp-month"
+             autocomplete="cc-exp-month"
+             required
+             name="cc-exp-month"
+             type="number" />
+    </div>
+
+    <div class="field short">
+      <label for="cc-exp-year">Year</label>
+      <input id="cc-exp-year"
+             autocomplete="cc-exp-year"
+             required
+             name="cc-exp-year"
+             type="number" />
+    </div>
+
+    <div class="field short">
+      <label for="cc-csc">CVV</label>
+      <input id="cc-csc"
+             autocomplete="cc-csc"
+             required
+             name="cc-csc"
+             type="number" />
+    </div>
+
+  </section>
+
+  <input type="submit"
+         value="Continue to Review" />
+
+</form>

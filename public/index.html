@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width">
+  <link rel="stylesheet"
+        href="/styles.css" />
+  <script src="/client.js"
+          defer></script>
+  <title>Checkout Form</title>
+
+</head>
+
+<body>
+  <h2>Checkout</h2>
+  <form id="myform">
+
+    <section id="section-shippingAddress">
+      <h2>Shipping Address</h2>
+
+      <div class="field long">
+        <label for="shipping-name">Full Name</label>
+        <input type="text"
+               name="shipping-name"
+               id="shipping-name"
+               required
+               autocomplete="shipping name">
+      </div>
+
+      <div class="field long"
+           id="shipping-XXX">
+        <label for="shipping-streetAddress1">Street Address</label>
+        <input type="text"
+               name="shipping-address"
+               id="shipping-streetAddress1"
+               required
+               autocomplete="shipping address-line1">
+      </div>
+
+      <div class="field long">
+        <label for="shipping-streetAddress2">Apt, Suite, Etc.</label>
+        <input type="text"
+               name="shipping-address2"
+               id="shipping-streetAddress2"
+               required
+               autocomplete="shipping address-line2">
+      </div>
+
+
+      <div class="field long">
+        <label for="shipping-city">City</label>
+        <input type="text"
+               name="shipping-city"
+               id="shipping-city"
+               required
+               autocomplete="shipping address-level2">
+      </div>
+
+
+      <div class="field short"
+           id="shipping-yyy"
+           data-error="Please enter a valid zip code">
+        <label for="shipping-zipCode">Zip Code</label>
+        <input type="number"
+               name="shipping-zip"
+               id="shipping-zipCode"
+               required
+               pattern="^\d{5,6}(?:[-\s]\d{4})?$"
+               autocomplete="shipping postal-code">
+      </div>
+
+      <div class="field short">
+        <label for="shipping-state">State</label>
+        <input type="text"
+               name="shipping-state"
+               id="shipping-state"
+               required
+               autocomplete="shipping address-level1">
+      </div>
+
+
+      <div class="field long">
+        <!--       placeholder="+1-555-555-1212" -->
+        <label for="phoneNum">Phone</label>
+        <input type="tel"
+               name="phone"
+               id="phoneNum"
+               pattern="^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$"
+               required
+               autocomplete="shipping tel">
+      </div>
+
+
+    </section>
+
+    <div id="separateBillingCheckboxfield">
+      <input type="checkbox"
+             id="separateBillingCheckbox"
+             name="sameBillingShipping"
+             checked />
+      <label for="separateBillingCheckbox">Same billing and shipping address</label>
+    </div>
+
+
+    <section id="section-billingAddress">
+      <h2>Billing Address</h2>
+
+      <div class="field long">
+        <label for="billing-name">Full Name</label>
+        <input type="text"
+               name="billing-name"
+               id="billing-name"
+               required
+               disabled
+               autocomplete="billing name">
+      </div>
+
+      <div class="field long"
+           id="billing-XXX">
+        <label for="billing-streetAddress1">Street Address</label>
+        <input type="text"
+               name="billing-address"
+               id="billing-streetAddress1"
+               required
+               disabled
+               autocomplete="billing address-line1">
+      </div>
+
+      <div class="field long">
+        <label for="billing-streetAddress2">Apt, Suite, Etc.</label>
+        <input type="text"
+               name="billing-address2"
+               id="billing-streetAddress2"
+               required
+               disabled
+               autocomplete="billing address-line2">
+      </div>
+
+
+      <div class="field long">
+        <label for="billing-city">City</label>
+        <input type="text"
+               name="billing-city"
+               id="billing-city"
+               required
+               disabled
+               autocomplete="billing address-level2">
+      </div>
+
+
+      <div class="field short">
+        <label for="billing-state">State</label>
+        <input type="text"
+               name="billing-state"
+               id="billing-state"
+               required
+               disabled
+               autocomplete="billing address-level1">
+      </div>
+
+
+      <div class="field short"
+           id="billing-yyy"
+           data-error="Please enter a valid zip code">
+        <label for="billing-zipCode">Zip Code</label>
+        <input type="text"
+               name="billing-zip"
+               id="billing-zipCode"
+               required
+               disabled
+               pattern="^\d{5,6}(?:[-\s]\d{4})?$"
+               autocomplete="billing postal-code">
+      </div>
+
+
+    </section>
+
+
+    <section id="section-paymentInformation">
+      <h2>Payment Information</h2>
+
+      <div class="field long"
+           data-error="">
+        <label for="cc-name">Name on Card</label>
+        <input type="text"
+               name="cc-name"
+               id="cc-name"
+               required
+               autocomplete="cc-name">
+      </div>
+
+      <div class="field long">
+        <label for="cc-number">Credit Card</label>
+        <input id="cc-number"
+               autocomplete="cc-number"
+               required
+               name="cc-number"
+               type="number" />
+      </div>
+
+
+      <div class="field short"
+           data-error="">
+        <label for="cc-exp-month">Month</label>
+        <input id="cc-exp-month"
+               autocomplete="cc-exp-month"
+               required
+               name="cc-exp-month"
+               type="number" />
+      </div>
+
+      <div class="field short"
+           data-error="">
+        <label for="cc-exp-year">Year</label>
+        <input id="cc-exp-year"
+               autocomplete="cc-exp-year"
+               required
+               name="cc-exp-year"
+               type="number" />
+      </div>
+
+      <div class="field short"
+           data-error="">
+        <label for="cc-csc">CVV</label>
+        <input id="cc-csc"
+               autocomplete="cc-csc"
+               required
+               name="cc-csc"
+               type="number" />
+      </div>
+
+    </section>
+
+    <input type="submit"
+           value="Submit" />
+
+  </form>
+
+  <form>
+    <h2>Delivery </h2>
+    <section>
+      <div class="field long activelabel helper"
+           data-helper="Choose your preferred delivery date">
+        <label for="deliveryDate">Delivery Date</label>
+        <input type="date"
+               name="deliveryDate"
+               id="deliveryDate"
+               min=""
+               max=""
+               required>
+      </div>
+
+      <div class="field long activelabel helper"
+           data-helper="Choose a deliver time between 11am and 5pm">
+        <label for="deliveryTime">Delivery Time</label>
+        <input type="time"
+               name="deliveryTime"
+               id="deliveryTime"
+               value="">
+      </div>
+
+
+      <!--       <div class="field short"
+           data-error="">
+        <label for="cc-exp-month">Month</label>
+        <input id="cc-exp-month"
+               autocomplete="cc-exp-month"
+               required
+               name="cc-exp-month"
+               type="number" />
+      </div>
+
+      <div class="field short"
+           data-error="">
+        <label for="cc-exp-year">Year</label>
+        <input id="cc-exp-year"
+               autocomplete="cc-exp-year"
+               required
+               name="cc-exp-year"
+               type="number" />
+      </div>
+
+      <div class="field short"
+           data-error="">
+        <label for="cc-csc">CVV</label>
+        <input id="cc-csc"
+               autocomplete="cc-csc"
+               required
+               name="cc-csc"
+               type="number" />
+      </div> -->
+
+    </section>
+  </form>
+<script>
+// Check that service workers are registered
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+
+</body>
+
+</html>

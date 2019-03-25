@@ -1,0 +1,56 @@
+<form action="/checkout/payment.html"
+      method="get">
+
+  <h2>Delivery </h2>
+  <section>
+
+
+    <div class="fieldRadio"
+         data-helper="Choose your preferred delivery method">
+      <span><b>Delivery Method</b></span>
+      <br/><br/>
+      <input type="radio"
+             id="delivery-method--standard"
+             name="delivery-method"
+             value="standard" 
+             checked />
+      <label for="delivery-method--standard">Standard - Free</label>
+      <br/>
+      <input type="radio"
+             id="delivery-method--expedited"
+             name="delivery-method"
+             value="expedited" />
+      <label for="delivery-method--expedited">Expedited - $14.99</label>
+      <br/>
+    </div>
+
+
+    <div class="field long activelabel helper"
+         data-helper="Choose your preferred delivery date">
+      <label for="deliveryDate">Delivery Date</label>
+      <input type="date"
+             name="deliveryDate"
+             id="deliveryDate"
+             min="2019-03-25"
+             max="2019-04-25"
+             required>
+    </div>
+
+    <div class="field long activelabel helper"
+         data-helper="Choose a delivery time between 11am and 5pm"
+         data-error="Delivery time must be between 11am and 5pm">
+      <label for="deliveryTime">Delivery Time</label>
+      <input type="time"
+             name="deliveryTime"
+             id="deliveryTime"
+             min="11:00"
+             max="17:00">
+    </div>
+
+  </section>
+
+
+  <input type="submit"
+         value="Continue to Payment" />
+
+</form>
