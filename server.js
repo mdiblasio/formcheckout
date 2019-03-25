@@ -10,23 +10,25 @@ const log = console.log;
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
 
-// app.get('/', function(request, response) {
-// 	log(`/views/${request.params.step}`);
-//   response.sendFile(__dirname + `/views/${request.params.step}`);//'/views/index.html');
-// });
+app.get('/', function(request, res) {
+  res.set("Location", "/checkout/shipping.html");
+  res.status(302).send();
+  // response.redirect(301, '/checkout/shipping.html');
+});
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/checkout/:step', function(request, response) {
-	log(`/views/${request.params.step}`);
-  response.sendFile(__dirname + `/views/${request.params.step}`);//'/views/index.html');
+  log(`/views/${request.params.step}`);
+  response.sendFile(__dirname + `/views/${request.params.step}`); //'/views/index.html');
 });
 
 app.get('/partials/:step', function(request, response) {
-	log(`/partials/${request.params.step}`);
-  response.sendFile(__dirname + `/partials/${request.params.step}`);//'/views/index.html');
+  log(`/partials/${request.params.step}`);
+  response.sendFile(__dirname + `/partials/${request.params.step}`); //'/views/index.html');
 });
+
+app.use(express.static('public'));
 
 // listen for requests :)
 // process.env.PORT = 8855;
