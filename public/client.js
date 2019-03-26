@@ -116,6 +116,8 @@ formInputs.forEach(input => {
 formInputs.forEach(input => {
   input.addEventListener('blur', e => {
 
+    e.srcElement.classList.add('dirty');
+
     // add activelabel class to adjust label position unless no value set
     if (e.srcElement.value == "")
       e.srcElement.parentNode.classList.remove('activelabel');
