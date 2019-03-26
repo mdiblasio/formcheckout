@@ -7,19 +7,21 @@ workbox.setConfig({
 workbox.skipWaiting();
 workbox.clientsClaim();
 
-const headerStrategy = workbox.strategies.networkOnly({
+const partialsStrategy = workbox.strategies.networkFirst({
   cacheName: "partials"
 });
 
+
+// staleWhileRevalidate
 // Use a stale-while-revalidate strategy as a source for part of the response.
-const apiStrategy = workbox.strategies.networkOnly({
+const apiStrategy = workbox.strategies.networkFirst({
   cacheName: 'apiStrategy',
 });
 
 const streamsStrategy = workbox.streams.strategy([
   // () => fetch("header.partial.html"),
   // console.log(event)
-  ({ event }) => headerStrategy.makeRequest({ event, request: "partials/header.html" }),
+  ({ event }) => partialsStrategy.makeRequest({ event, request: "partials/header.html" }),
   ({ event }) => {
     console.log(event);
     let pathname = (new URL(event.request.url)).pathname;
@@ -29,7 +31,7 @@ const streamsStrategy = workbox.streams.strategy([
       request: requestURL,
     })
   },
-  // ({ event }) => partialsStrategy.makeRequest({ event, request: "partials/body.partial.0.html" }),
+  ({ event }) => partialsStrategy.makeRequest({ event, request: "partials/footer.html" }),
   // ({ event }) => partialsStrategy.makeRequest({ event, request: "partials/body.partial.1.html" }),
   // ({ event }) => partialsStrategy.makeRequest({ event, request: "partials/body.partial.2.html" }),
   // ({ event }) => partialsStrategy.makeRequest({ event, request: "partials/body.partial.3.html" }),
@@ -39,6 +41,14 @@ const streamsStrategy = workbox.streams.strategy([
 ], { 'content-type': 'text/html' });
 
 workbox.routing.registerRoute(
-  /checkout/,
+  /\/checkout\//,
   streamsStrategy
 );
+
+workbox.routing.registerRoute(
+  /\.(?:css|js)$/,
+  workbox.strategies.networkFirst({
+    cacheName: 'static-assets'
+  })
+);
+

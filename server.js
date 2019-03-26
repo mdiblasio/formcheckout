@@ -12,8 +12,9 @@ const log = console.log;
 // http://expressjs.com/en/starter/static-files.html
 
 app.get('/', function(request, res) {
-  res.set("Location", "/checkout/shipping.html");
-  res.status(302).send();
+ res.sendFile(__dirname + `/public/index.html`); 
+  // res.set("Location", "/checkout/shipping.html");
+  // res.status(302).send();
   // response.redirect(301, '/checkout/shipping.html');
 });
 

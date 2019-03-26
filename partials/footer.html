@@ -1,13 +1,33 @@
-  <script>
-  // Check that service workers are registered
-  if ('serviceWorker' in navigator) {
-    // Use the window load event to keep the page load performant
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-  </script>
+<script>
+// Check that service workers are registered
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+<script>
+// Configures custom dimension<Index> to use the custom parameter
+// 'dimension_name' for 'GA_MEASUREMENT_ID', where <Index> is a number
+// // representing the index of the custom dimension.
+// gtag('config', 'GA_MEASUREMENT_ID', {
+//   'custom_map': { 'dimension<Index>': 'dimension_name' }
+// });
 
+// // Sends the custom dimension to Google Analytics.
+// gtag('event', 'any_event_name', { 'dimension_name': dimension_value });
+</script>
+
+<script>
+// Configures custom metric<Index> to use the custom parameter
+// 'metric_name' for GA_MEASUREMENT_ID, where <Index> is a number
+// representing the index of the custom metric.
+
+
+// Sends the custom dimension to Google Analytics.
+// gtag('event', 'input_invalidation', { 'metric_name': metric_value });
+</script>
 </body>
 
 </html>
